@@ -53,14 +53,14 @@ abi = json.loads(
 #
 # For connecting to ganache
 # these datas are from ganache-cli -d
-w3 = Web3(Web3.HTTPProvider("http://127.0.0.1:8545"))
+w3 = Web3(Web3.HTTPProvider("http://127.0.0.1:7545"))
 chain_id = 1337
-my_address = "0x90F8bf6A479f320ead074411a4B0e7944Ea8c9C1"
+my_address = "0xF74Fbe95257a9d18d5743c617774D3e521a07cFd"
 # use export PRIVATE_KEY=whatever your private key is
 # this is just ganache private key so it doesn't matter
 # to access env vairable just use privatekey = os.getenv("PRIVATE_KEY")
 # privatekey = os.getenv("PRIVATE_KEY")
-private_key = "0x4f3edf983ac636a65a842ce7c78d9aa706d3b113bce9c46f30d7d21715b23b1d"
+private_key = "0x20eae74301b0bcb1343f0c2ad4b538b903602cef7824c1158e36cfbc80b90383"
 
 # Create the contract in Python
 SimpleStorage = w3.eth.contract(abi=abi, bytecode=bytecode)
@@ -91,7 +91,7 @@ print(f"Done! Contract deployed to {tx_receipt.contractAddress}")
 # 1. contract address
 # 2. contract ABI
 simple_storage = w3.eth.contract(address=tx_receipt.contractAddress, abi=abi)
-# your can interact with contract in two different ways:
+# you can interact with contract in two different ways:
 # 1. call-> Simulate making the call and getting a return value (calls dont make a state change) (blue buttons on remix generally speaking)
 # 2. transact-> Actually make a state change (in remix, it's the orange buttons) (usually when we build the txn and send the txn)
 print(f"Initial Stored Value {simple_storage.functions.retrieve().call()}")
