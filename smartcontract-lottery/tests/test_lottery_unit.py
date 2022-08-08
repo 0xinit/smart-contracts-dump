@@ -88,6 +88,7 @@ def test_can_pick_winner_correctly(lottery_contract):
     transaction = lottery_contract.endLottery({"from": account})
     request_id = transaction.events["RequestedRandomness"]["requestId"]
     STATIC_RNG = 777
+    # pretending to be a chainlink node
     get_contract("vrf_coordinator").callBackWithRandomness(
         request_id, STATIC_RNG, lottery_contract.address, {"from": account}
     )
