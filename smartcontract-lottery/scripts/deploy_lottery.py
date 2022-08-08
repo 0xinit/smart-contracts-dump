@@ -1,4 +1,4 @@
-from scripts.helpful_scripts import get_account, get_contract, fund_with_link
+from scripts.helpful_scripts import get_account, get_contract
 from brownie import Lottery, network, config
 import time
 
@@ -14,6 +14,8 @@ def deploy_lottery():
         {"from": account},
         publish_source=config["networks"][network.show_active()].get("verify", False),
     )
+    print("Deployed lottery!")
+    return lottery
 
 
 def main():
