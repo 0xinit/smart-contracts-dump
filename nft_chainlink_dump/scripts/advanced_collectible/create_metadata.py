@@ -43,6 +43,7 @@ def main():
                 upload_to_ipfs(metadata_file_name)
 
 
+# a comment to test the ipfs
 # curl -X POST -F file=@metadata/rinkeby/0-SHIBA_INU.json http://localhost:5001/api/v0/add
 
 
